@@ -19,10 +19,7 @@ ENV WPVER 4.2.2
 
 RUN mkdir -p /var/www \
     && curl https://wordpress.org/wordpress-${WPVER}.tar.gz | tar -xz --exclude="wp-content" -C /var/www/ \
-    && mkdir -p /var/www/wordpress/wp-content/ \
     && chown -R www-data:www-data /var/www/wordpress
-
-# VOLUME /var/www/wordpress/wp-content/:/var/htdocs/${VIRTUAL_HOST}/wp-content/
 
 # Add WP-Config
 
