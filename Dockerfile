@@ -21,6 +21,10 @@ RUN mkdir -p /var/www \
     && curl https://wordpress.org/wordpress-${WPVER}.tar.gz | tar -xz --exclude="wp-content" -C /var/www/ \
     && chown -R www-data:www-data /var/www/wordpress
 
+# Cleanup 
+RUN apt-get clean
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 # Add WP-Config
 
 # Add Nginx.conf
