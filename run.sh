@@ -10,4 +10,6 @@ if [ $# -eq 0 ]
     echo "No arguments supplied"
 fi
 
+docker kill $1
+docker rm $1
 docker run -d -P -e VIRTUAL_HOST=$1 --name $1  -v /var/www/wordpress/wp-content/:/var/htdocs/$1/wp-content/ wildwingstudios/nginx-wordpress
